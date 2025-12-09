@@ -50,7 +50,7 @@ def create_app():
     jwt.init_app(app)
     CORS(
         app,
-        resources={r"/*": {"origins": "http://localhost:5173"}},
+        resources={r"/*": {"origins": "https://special-space-robot-jv4794r75wxfpx46-5173.app.github.dev"}},
         supports_credentials=True,
         expose_headers=["Authorization"],
         allow_headers=["Authorization", "Content-Type"]
