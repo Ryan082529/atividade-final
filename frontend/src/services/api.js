@@ -2,7 +2,11 @@
 import axios from 'axios'
 
 const api = axios.create({
+<<<<<<< HEAD
   baseURL: import.meta.env.VITE_API_URL || 'https://special-space-robot-jv4794r75wxfpx46-5000.app.github.dev/',
+=======
+  baseURL: import.meta.env.VITE_API_URL || 'https://fictional-goggles-v9grwgprv5gf5w6-5000.app.github.dev/',
+>>>>>>> af18ba37e (corrigir erro CORS)
   headers: {
     'Content-Type': 'application/json'
   },

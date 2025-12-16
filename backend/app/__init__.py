@@ -50,12 +50,15 @@ def create_app():
     jwt.init_app(app)
     CORS(
         app,
+<<<<<<< HEAD
         resources={r"/*": {"origins": "https://special-space-robot-jv4794r75wxfpx46-5173.app.github.dev"}},
+=======
+>>>>>>> af18ba37e (corrigir erro CORS)
         supports_credentials=True,
-        expose_headers=["Authorization"],
-        allow_headers=["Authorization", "Content-Type"]
+        resources={r"/*": {"origins": "*"}},
+        allow_headers=["Content-Type", "Authorization"],
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
     )
-
     @jwt.unauthorized_loader
     def unauthorized_response(err_str):
         return jsonify({ "error": "Token JWT ausente ou inválido", "message": err_str }), 401
