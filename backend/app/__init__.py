@@ -49,13 +49,18 @@ def create_app():
     migrate.init_app(app, db)
     jwt.init_app(app)
     CORS(
-        app,
-        resources={r"/*": {"origins": "https://special-space-robot-jv4794r75wxfpx46-5173.app.github.dev"}},
-        supports_credentials=True,
-        resources={r"/*": {"origins": "*"}},
-        allow_headers=["Content-Type", "Authorization"],
-        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
-    )
+    app,
+    supports_credentials=True,
+    resources={
+        r"/*": {
+            "origins": [
+                "https://verbose-potato-jv4794r747jfpjrg-5173.app.github.dev"
+            ]
+        }
+    },
+    allow_headers=["Content-Type", "Authorization"],
+    methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+) 
     @jwt.unauthorized_loader
     def unauthorized_response(err_str):
         return jsonify({ "error": "Token JWT ausente ou inválido", "message": err_str }), 401
